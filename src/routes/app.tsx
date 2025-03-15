@@ -10,12 +10,11 @@ export const Route = createFileRoute('/app')({
 
 // made with ChatGPT, @todo further modifications
 function App() {
-    const [departure, setDeparture] = useState("Helsingi (HEL)");
-    const [destination, setDestination] = useState("London, Inglismaa, Suurbritannia");
+    const [departure, setDeparture] = useState("From");
+    const [destination, setDestination] = useState("To");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [passengers, setPassengers] = useState(1);
-    const [travelClass, setTravelClass] = useState("Turisti");
 
     return (
         <Layout>
@@ -75,18 +74,16 @@ function App() {
                     className="text-gray-700 px-4 border-l border-gray-300 cursor-pointer"
                     onClick={() => {
                         let p = prompt("Enter number of passengers:", passengers.toString());
-                        let t = prompt("Enter travel class (Turisti/Business):", travelClass);
                         setPassengers(p ? parseInt(p) : passengers);
-                        setTravelClass(t || travelClass);
                     }}
                 >
-                    {passengers} täiskasvanu, {travelClass}
+                    {passengers} täiskasvanu
                 </div>
 
                 {/* Search Button */}
                 <button
                     className="bg-purple-700 text-white rounded-full p-3 hover:bg-purple-800"
-                    onClick={() => alert(`Searching flights from ${departure} to ${destination} on ${startDate.toDateString()} - ${endDate.toDateString()} for ${passengers} passenger(s) in ${travelClass} class`)}
+                    onClick={() => alert(`Searching flights from ${departure} to ${destination} on ${startDate.toDateString()} - ${endDate.toDateString()} for ${passengers} passenger(s).`)}
                 >
                     🔍
                 </button>
