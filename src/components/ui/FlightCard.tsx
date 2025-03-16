@@ -20,6 +20,8 @@ const FlightCard: React.FC<FlightProps> = ({
     const formattedDate = new Date(date).toLocaleDateString("en-GB", {
         weekday: "short",
         day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
         month: "short",
         year: "numeric",
     });

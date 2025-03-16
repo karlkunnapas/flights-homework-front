@@ -1,23 +1,18 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 
 export const Route = createRootRoute({
     component: () => (
         <>
             <div className="p-2 flex gap-2">
                 <Link to="/" className="[&.active]:font-bold">
-                    Home
+                    Flights
                 </Link>{' '}
-                <Link to="/about" className="[&.active]:font-bold">
-                    About
-                </Link>
-                <Link to="/app" className="[&.active]:font-bold">
-                    App
+                <Link to="/filter" className="[&.active]:font-bold">
+                    Filtering
                 </Link>
             </div>
             <hr />
             <Outlet />
-            <TanStackRouterDevtools />
         </>
     ),
 })

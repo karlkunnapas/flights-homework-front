@@ -1,15 +1,9 @@
-import Layout from "@/components/Layout";
-import { createFileRoute } from '@tanstack/react-router';
 import { useState } from "react";
+import Layout from "@/components/Layout";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export const Route = createFileRoute('/app')({
-    component: App,
-})
-
-// made with ChatGPT, @todo further modifications
-function App() {
+function SearchBar() {
     const [departure, setDeparture] = useState("From");
     const [destination, setDestination] = useState("To");
     const [startDate, setStartDate] = useState(new Date());
@@ -20,7 +14,7 @@ function App() {
         <Layout>
             <div
                 className="flex items-center bg-white shadow-lg rounded-full p-2 gap-2 w-full max-w-3xl mx-auto border border-gray-300">
-                {/* Departure Dropdown */}
+                {/* Departure input box */}
                 <div className="relative">
                     <input
                         type="text"
@@ -31,7 +25,7 @@ function App() {
                     />
                 </div>
 
-                {/* Swap Icon */}
+                {/* Swap input boxes */}
                 <button
                     className="text-gray-500 text-xl"
                     onClick={() => {
@@ -43,7 +37,7 @@ function App() {
                     ↔
                 </button>
 
-                {/* Destination Dropdown */}
+                {/* Destination input box */}
                 <div className="relative">
                     <input
                         type="text"
@@ -69,7 +63,7 @@ function App() {
                     />
                 </div>
 
-                {/* Passenger & Class Selector */}
+                {/* Number of passengers */}
                 <div
                     className="text-gray-700 px-4 border-l border-gray-300 cursor-pointer"
                     onClick={() => {
@@ -77,7 +71,7 @@ function App() {
                         setPassengers(p ? parseInt(p) : passengers);
                     }}
                 >
-                    {passengers} täiskasvanu
+                    {passengers} adult
                 </div>
 
                 {/* Search Button */}
@@ -85,11 +79,11 @@ function App() {
                     className="bg-purple-700 text-white rounded-full p-3 hover:bg-purple-800"
                     onClick={() => alert(`Searching flights from ${departure} to ${destination} on ${startDate.toDateString()} - ${endDate.toDateString()} for ${passengers} passenger(s).`)}
                 >
-                    🔍
+                    Search
                 </button>
             </div>
         </Layout>
     )
 }
 
-export default App;
+export default SearchBar;
