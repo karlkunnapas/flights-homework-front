@@ -1,6 +1,10 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default.css";
 
 @plugin "tailwindcss-animate";
+@plugin "flowbite/plugin";
+
+@source "../node_modules/flowbite";
 
 @custom-variant dark (&:is(.dark *));
 

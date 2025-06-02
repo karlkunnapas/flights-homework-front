@@ -3,7 +3,7 @@ import {createFileRoute} from '@tanstack/react-router'
 import FlightCard from "../components/ui/FlightCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
-import SearchBar from "@/components/ui/SearchBar.tsx";
+import {SearchBar} from "@/components/ui/SearchBar.tsx";
 
 interface FlightType {
     startingPoint: string;
